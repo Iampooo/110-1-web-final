@@ -1,0 +1,24 @@
+{
+  "name": "hw7",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "cd frontend && npm start",
+    "server": "cd backend && npm run server"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@ant-design/icons": "^4.7.0",
+    "@material-ui/core": "^4.12.3",
+    "ant-design": "^1.0.0",
+    "antd": "^4.17.2",
+    "axios": "^0.24.0",
+    "body-parser": "^1.19.0",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "styled-components": "^5.3.3"
+  }
+}
