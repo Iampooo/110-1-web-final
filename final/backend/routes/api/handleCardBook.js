@@ -1,7 +1,7 @@
-import CardBook from '../../models/CardBook';
+import CardBook from '../../models/CardBook.js';
 const queryCardBook=async()=>{
     let result= await CardBook.find().sort({name:-1}).limit(100);
-    return result;                                                                                    
+    return result;
 }
 const createCardBook = async(id,name,color)=>{
     const existing = await CardBook.find({name:name,color:color});
@@ -16,8 +16,10 @@ const deleteCardBook = async(id)=>{
     await CardBook.deleteOne({bookId:id});
 }
 const changeNumOfCard = async(bookId,mod)=>{
+    console.log("k");
     let target = await CardBook.findOne({bookId:bookId})
-    let num = target[0].num_of_card+mod
+    let num = target.num_of_card+mod
+    console.log(num, target);
     await CardBook.update({bookId:bookId},{num_of_card:num})
 }
 

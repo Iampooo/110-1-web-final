@@ -10,7 +10,7 @@ import { Routes, Route, useNavigate } from 'react-router-dom'
 
 function Guide(props) {
   const navigate = useNavigate();
-  
+
   return (
     <div className="wrapper">
       {/* <Appbar navigate={navigate} /> */}

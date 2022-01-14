@@ -1,7 +1,7 @@
 import express from 'express'
-import {queryCard,createCard,deleteCard,deleteManyCard} from './api/handleCard'
-import {queryCardBook,createCardBook,deleteCardBook,changeNumOfCard} from './api/handleCardBook'
-let bodyParser = require('body-parser');
+import {queryCard,createCard,deleteCard,deleteManyCard} from './api/handleCard.js'
+import {queryCardBook,createCardBook,deleteCardBook,changeNumOfCard} from './api/handleCardBook.js'
+import bodyParser from 'body-parser';
 let Parser=bodyParser.json();
 const router = express.Router();
 //1. operation on CardBook
@@ -44,7 +44,7 @@ router.delete('/deleteBook',async (req,res)=>{
     catch(e){
         res.status(403);
         res.json({"message": "error"})
-    }   
+    }
 })
 //2. card operation
 //allcards: 取得所有Card
@@ -71,7 +71,7 @@ router.post('/newCard',Parser,async (req,res)=>{
         await changeNumOfCard(belong,1)
         res.status(200);
         res.json({"message":"success"});
-        
+
     }
     catch(e){
         res.status(403);
@@ -80,7 +80,8 @@ router.post('/newCard',Parser,async (req,res)=>{
 })
 router.delete('/deleteCard',async (req,res)=>{
     try{
-        const cardId=req.query.id
+        const cardId=req.query.cardId
+        const bookId=req.query.bookId
         await deleteCard(cardId);
         await changeNumOfCard(bookId,-1)
         res.status(200);
@@ -89,6 +90,6 @@ router.delete('/deleteCard',async (req,res)=>{
     catch(e){
         res.status(403);
         res.json({"message": "error"})
-    }   
+    }
 })
 export default router

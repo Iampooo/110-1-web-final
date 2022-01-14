@@ -6,6 +6,7 @@
   "scripts": {
     "server": "nodemon server.js --ext js --exec babel-node"
   },
+  "type": "module",
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -16,6 +17,7 @@
     "graphql-yoga": "^1.18.3",
     "mongoose": "^6.1.6",
     "nodemon": "^2.0.15",
+    "react-card-flip": "^1.1.5",
     "ws": "^8.4.0"
   },
   "devDependencies": {
@@ -23,6 +25,7 @@
     "@babel/core": "^7.16.7",
     "@babel/node": "^7.16.8",
     "@babel/preset-env": "^7.16.8",
+    "@babel/preset-react": "^7.16.7",
     "express": "^4.17.2"
   }
 }

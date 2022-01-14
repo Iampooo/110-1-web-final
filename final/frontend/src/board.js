@@ -25,8 +25,8 @@ function Board(props) {
   const [visible, setVisible] =useState(false);
   const addNameRef = useRef();
   const addColorRef = useRef();
-  
-  
+
+
 
   // TODO 2-(2): fetch all posts from database
   useEffect(() => {
@@ -76,14 +76,14 @@ function Board(props) {
   const deleteCardBook =async (id) =>
     await instance.delete("/api/deleteBook", {params: {id:id}});
 
-  
+
   return (
     <>
       {/* <div className="board-navbar">
         <div style={{ fontWeight: 'bold', fontSize: 28 }}>Post List</div>
         <Button className="board-launch-btn" variant="contained" color="primary" id="pid-post-btn" onClick={() => props.navigate('/new')}>New Post</Button>
       </div> */}
-      
+
       <div style ={{
           margin: "100px auto auto auto",
           height: 500,
@@ -95,10 +95,10 @@ function Board(props) {
         <div style ={{width: "70%"}}>
           {books.length ?
               books.map((cardBook, i) =>
-                <CardBook 
+                <CardBook
                   cardBookInfo ={cardBook}
                   type ="normal-card-book"
-                  navigate ={props.navigate}
+                  navigate ={() => props.navigate(`/cardBook/${cardBook.bookId}`)}
                   deleteFunc ={deleteCardBook}
                 />
                 // <div className="card-book" key={i} id={`bid-${i}`} onClick={() => props.navigate(`/post/${post.postId}`)}>
@@ -109,8 +109,8 @@ function Board(props) {
                 //   </div>
                 // </div>
               ): <div/>}
-          
-          <CardBook 
+
+          <CardBook
             type ="card-book-creater"
             onClick ={() => setVisible(true)}
           />
