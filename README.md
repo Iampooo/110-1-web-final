@@ -1,9 +1,9 @@
 # My Card Books—給我通通記住 (Rememebro Totalum)
 ![](https://i.imgur.com/Sm6SLu5.png)
 ## Demo video
--:clapper: 
+-:clapper: https://youtu.be/S13adVSS-yA
 ## Deploy Link
--:100: 
+-:100: https://testingwp1101.herokuapp.com/
 ## Introduction
 這次我們製作的是以單字卡為主體的幫助記憶程式，是以QUIZLET為參考，有鑑於市面上很多單字卡的APP都有很多廣告或是沒必要的功能，因此希望能打造一個更簡單更直接沒有太多干擾的單字卡網頁。
 ## User Interface
