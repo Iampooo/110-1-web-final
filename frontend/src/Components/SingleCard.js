@@ -57,16 +57,16 @@ function SingleCards(props) {
       hoverable
       style={cardStyle}
       title={<Paragraph
-                editable={{onChange: handleTitleEdit, triggerType: ["text"]}} 
+                editable={{onChange: handleTitleEdit, triggerType: ["text"]}}
                 style ={{display: "flex", justifyContent: "space-between", fontSize: "24px"}}>
-          {title}
+          {cardInfo.front}
         </Paragraph>}
     >
       <div style={{ display: "flex", justifyContent: "space-between" }}>
       <Paragraph
-                editable={{onChange: handleDescriptionEdit, triggerType: ["text"]}} 
+                editable={{onChange: handleDescriptionEdit, triggerType: ["text"]}}
                 style ={{display: "flex", justifyContent: "space-between"}}>
-          {description}
+          {cardInfo.back}
         </Paragraph>
         <DeleteOutlined
           style={{ fontSize: 20 , marginTop: 10}}
