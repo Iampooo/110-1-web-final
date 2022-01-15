@@ -5,7 +5,7 @@ import AddModal from "./AddCardModal.js";
 
 
 function LittleCards(props) {
-  const { cardBookId, cards, visible, addNameRef, addDescriptionRef, handleCreate, handleCancel, deleteCard, setVisible } = props;
+  const { cardBookId, cards, visible, addNameRef, addDescriptionRef, handleCreate, handleCancel, updateCard, deleteCard, setVisible } = props;
 
 
   return (
@@ -26,6 +26,7 @@ function LittleCards(props) {
               cardInfo={card}
               type="normal-card"
               deleteFunc={()=>deleteCard(card.cardId, card.belong)}
+              updateFunc ={updateCard}
             />
           ))
         ) : (

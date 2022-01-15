@@ -21,7 +21,7 @@ function CardBook(props)
         borderRadius: "20px 20px 0 0",
         backgroundColor: `${cardBookInfo ? cardBookInfo.color : "#00000000"}`,
         width: "100%",
-        height: 120
+        height: 60
     };
 
     const cardBookCreaterCoverStyle =
@@ -30,7 +30,7 @@ function CardBook(props)
         backgroundColor: `${cardBookInfo ? cardBookInfo.color : "#00000000"}`,
         width: "100%",
         textAlign: "center",
-        height: 110,
+        height: 55,
         position: "relative"
     };
 
@@ -40,7 +40,7 @@ function CardBook(props)
                 bordered ={false}
                 style={cardBookStyle}
                 onClick={onClick}
-                cover={<div style ={cardBookCreaterCoverStyle}><PlusCircleOutlined style ={{padding: 80, fontSize: 50}}/></div>}
+                cover={<div style ={cardBookCreaterCoverStyle}><PlusCircleOutlined style ={{padding: 65, fontSize: 50}}/></div>}
             >
                 <Meta
                     title="&nbsp;"

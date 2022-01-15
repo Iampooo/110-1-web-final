@@ -23,5 +23,10 @@ const changeNumOfCard = async(bookId,mod)=>{
     await CardBook.update({bookId:bookId},{num_of_card:num})
 }
 
+const query_a_Book = async(bookId)=>{
+    let target = await CardBook.findOne({bookId:bookId})
+    return target;
+}
 
-export  {queryCardBook,createCardBook,deleteCardBook,changeNumOfCard}
+
+export  {queryCardBook,createCardBook,deleteCardBook,changeNumOfCard,query_a_Book}

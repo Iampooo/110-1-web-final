@@ -6,6 +6,7 @@ import { Layout, Typography } from "antd";
 import { v4 as uuidv4 } from "uuid";
 import DisplayCard from "../Components/DisplayCard.js";
 import LittleCards from "../Components/LittleCards.js";
+import { Hidden } from "@material-ui/core";
 
 function ManyCards(props) {
   const { cardBookId } = props;
@@ -56,12 +57,24 @@ function ManyCards(props) {
     });
   };
 
+  const updateCard = async (cardid, title, description) =>
+  {
+    await instance.post("/api/updateCard", {
+      cardId: cardid,
+      front: title,
+      back: description,
+      
+    });
+    console.log(11111)
+  };
+
   const deleteCard = async (cardid, bookid) =>
     await instance.delete("/api/deleteCard", {
       params: { cardId: cardid, bookId: bookid },
     });
 
   return (
+    <div style ={{height: 550, overflow: "auto"}}>
       <Layout style={{ width: "80%", margin: "auto", display: "flex" }}>
         <DisplayCard cards={cards} cardBookId={cardBookId} />
         <LittleCards
@@ -72,10 +85,12 @@ function ManyCards(props) {
           addDescriptionRef={addDescriptionRef}
           handleCreate={handleCreate}
           handleCancel={handleCancel}
+          updateCard ={updateCard}
           deleteCard={deleteCard}
           setVisible={setVisible}
         />
       </Layout>
+    </div>
   );
 }
 

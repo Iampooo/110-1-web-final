@@ -1,8 +1,14 @@
-import { Card } from "antd";
-import { DeleteOutlined, PlusCircleOutlined } from "@ant-design/icons";
+import { Card, Typography } from "antd";
+import { DeleteOutlined, PlusCircleOutlined, EditOutlined } from "@ant-design/icons";
+import { useState } from "react";
+
+const {Paragraph} =Typography;
 
 function SingleCards(props) {
-  const { cardInfo, type, onClick, deleteFunc } = props;
+  const { cardInfo, type, onClick, updateFunc, deleteFunc } = props;
+
+  const [title, setTitle] =useState(cardInfo ? cardInfo.front : "");
+  const [description, setDescription] =useState(cardInfo ? cardInfo.back : "");
 
   const cardStyle = {
     width: 240,
@@ -17,6 +23,19 @@ function SingleCards(props) {
     minWidth: 240,
     display: "inline-block",
   };
+
+  const handleTitleEdit =(value) =>
+  {
+    setTitle(value);
+    console.log(11111);
+    updateFunc(cardInfo.cardId, value, description);
+  }
+
+  const handleDescriptionEdit =(value) =>
+  {
+    setDescription(value)
+    updateFunc(cardInfo.cardId, title, value);
+  }
 
   if (type === "card-creater")
     return (
@@ -37,13 +56,21 @@ function SingleCards(props) {
       className="card"
       hoverable
       style={cardStyle}
-      title={<span style ={{fontSize: "24px"}}>{cardInfo.front}</span>}
+      title={<Paragraph
+                editable={{onChange: handleTitleEdit, triggerType: ["text"]}} 
+                style ={{display: "flex", justifyContent: "space-between", fontSize: "24px"}}>
+          {title}
+        </Paragraph>}
     >
       <div style={{ display: "flex", justifyContent: "space-between" }}>
-        <p style={{ width: "80%" }}>{cardInfo.back}</p>
+      <Paragraph
+                editable={{onChange: handleDescriptionEdit, triggerType: ["text"]}} 
+                style ={{display: "flex", justifyContent: "space-between"}}>
+          {description}
+        </Paragraph>
         <DeleteOutlined
-          style={{ fontSize: 20 }}
-          onClick={() => deleteFunc(cardInfo.cardId)}
+          style={{ fontSize: 20 , marginTop: 10}}
+          onClick={() => deleteFunc()}
         />
       </div>
     </Card>

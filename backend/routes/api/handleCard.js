@@ -20,6 +20,9 @@ const deleteCard = async(cardId)=>{
 const deleteManyCard = async(bookId)=>{
     await Card.deleteMany({belong:bookId});
 }
+const updateCard=async(cardId,front,back)=>{
+    await Card.update({cardId:cardId},{front:front,back:back})
+}
 
 
-export  {queryCard,createCard,deleteCard,deleteManyCard}
+export  {queryCard,createCard,deleteCard,deleteManyCard,updateCard}

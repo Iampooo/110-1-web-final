@@ -17,9 +17,9 @@ export default function DisplayCard(props) {
   };
 
   const contentStyle = {
-    height: "320px",
+    height: "400px",
     color: "#fff",
-    lineHeight: '320px',
+    lineHeight: '400px',
     textAlign: "center",
     fontSize: "75px",
     padding: 0,

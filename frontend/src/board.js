@@ -48,7 +48,7 @@ function Board(props) {
   {
     setVisible(false);
     addNameRef.current.state.value = "";
-    addColorRef.current.state.value = "#000000";
+    addColorRef.current.state.value = "#F5F5F5";
   };
 
   const handleCreate = async() =>
@@ -59,7 +59,7 @@ function Board(props) {
     console.log( addNameRef.current.state.value);
 
     const color = addColorRef.current.state.value;
-    addColorRef.current.state.value = "#000000";
+    addColorRef.current.state.value = "#F5F5F5";
 
     if (!name || name.trim() === "")
       return;
@@ -79,20 +79,18 @@ function Board(props) {
 
   return (
     <>
-      {/* <div className="board-navbar">
-        <div style={{ fontWeight: 'bold', fontSize: 28 }}>Post List</div>
-        <Button className="board-launch-btn" variant="contained" color="primary" id="pid-post-btn" onClick={() => props.navigate('/new')}>New Post</Button>
-      </div> */}
-
       <div style ={{
           margin: "100px auto auto auto",
           height: 500,
           width: "100%",
-          display: "flex",
+          
           justifyContent: "center",
           overflow: "auto",
       }}>
-        <div style ={{width: "70%"}}>
+        <h1 style ={{margin: "20px auto 0px auto", width: "100%", textAlign: "center", fontSize: 80}}>My Card Books</h1>
+        <h4 style ={{color: "#aaaaaa", margin: "0px auto 50px auto", width: "100%", textAlign: "center", fontSize: 28}}>給我通通記住</h4>
+        
+        <div style ={{width: "70%", margin: "auto"}}>
           {books.length ?
               books.map((cardBook, i) =>
                 <CardBook
@@ -101,13 +99,6 @@ function Board(props) {
                   navigate ={() => props.navigate(`/cardBook/${cardBook.bookId}`)}
                   deleteFunc ={deleteCardBook}
                 />
-                // <div className="card-book" key={i} id={`bid-${i}`} onClick={() => props.navigate(`/post/${post.postId}`)}>
-                //   <span className="card-book-name"> {} </span>
-
-                //   <div className="article-postfix">
-                //     <span className="each-time" id={`pid-${i}-time`}>{moment(post.timestamp).format('YYYY-MM-DD')}</span>
-                //   </div>
-                // </div>
               ): <div/>}
 
           <CardBook

@@ -1,6 +1,6 @@
 import express from 'express'
-import {queryCard,createCard,deleteCard,deleteManyCard} from './api/handleCard.js'
-import {queryCardBook,createCardBook,deleteCardBook,changeNumOfCard} from './api/handleCardBook.js'
+import {queryCard,createCard,deleteCard,deleteManyCard,updateCard} from './api/handleCard.js'
+import {queryCardBook,createCardBook,deleteCardBook,changeNumOfCard,query_a_Book} from './api/handleCardBook.js'
 import bodyParser from 'body-parser';
 let Parser=bodyParser.json();
 const router = express.Router();
@@ -17,6 +17,20 @@ router.get('/allBooks',async (req,res)=>{
         res.json({"message":"error","data":null})
     }
 })
+
+router.get('/getBookNameById',async (req,res)=>{
+    try{
+        let bookId = req.query.id;
+        let result= await query_a_Book(bookId);
+        res.status(200);
+        res.json({"message":"success","data": result});
+    }
+    catch(e){
+        res.status(403);
+        res.json({"message":"error","data":null})
+    }
+})
+
 //newBooks:新增一個CardBook
 router.post('/newBook',Parser,async (req,res)=>{
     try{
@@ -78,6 +92,22 @@ router.post('/newCard',Parser,async (req,res)=>{
         res.json({"message":"error"})
     }
 })
+router.post('/updateCard',Parser,async (req,res)=>{
+    try{
+        let cardId=req.body.cardId;
+        let front = req.body.front;
+        let back = req.body.back;
+        await updateCard(cardId,front,back);
+        res.status(200);
+        res.json({"message":"success"});
+
+    }
+    catch(e){
+        res.status(403);
+        res.json({"message":"error"})
+    }
+})
+
 router.delete('/deleteCard',async (req,res)=>{
     try{
         const cardId=req.query.cardId
@@ -92,4 +122,5 @@ router.delete('/deleteCard',async (req,res)=>{
         res.json({"message": "error"})
     }
 })
+
 export default router
