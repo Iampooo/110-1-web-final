@@ -115,6 +115,8 @@ If you haven't watched our demo video, go watch it and you'll know how easy to u
 
 Alternatively, the following tutorial can help you navigate through our app:
 **Let's get started!**
+
+> **If you cannot see some components, please adjust you screen size to let them fit**
 ### Main Page
 ![](https://i.imgur.com/Sm6SLu5.png)
 ##### Introduction
